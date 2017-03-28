@@ -1,15 +1,14 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Game = sequelize.define('Game', {
-    id: DataTypes.NUMBER,
-    game: DataTypes.NUMBER,
-    sr_change: DataTypes.NUMBER,
-    rank: DataTypes.NUMBER,
-    streak: DataTypes.NUMBER,
+    game_integer: DataTypes.INTEGER,
+    sr_change: DataTypes.INTEGER,
+    rank: DataTypes.INTEGER,
+    streak: DataTypes.INTEGER,
     map: DataTypes.TEXT,
     score: DataTypes.STRING,
-    groupsize: DataTypes.NUMBER,
-    hero: DataTypes.TEXT,
+    group_size: DataTypes.INTEGER,
+    heroes: DataTypes.TEXT,
     notes: DataTypes.TEXT
   }, {
     classMethods: {

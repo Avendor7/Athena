@@ -8,20 +8,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.NUMBER
-      },
-      game: {
-        type: Sequelize.NUMBER
+      game_integer: {
+        type: Sequelize.INTEGER
       },
       sr_change: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       rank: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       streak: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       map: {
         type: Sequelize.TEXT
@@ -29,10 +26,10 @@ module.exports = {
       score: {
         type: Sequelize.STRING
       },
-      groupsize: {
-        type: Sequelize.NUMBER
+      group_size: {
+        type: Sequelize.INTEGER
       },
-      hero: {
+      heroes: {
         type: Sequelize.TEXT
       },
       notes: {
