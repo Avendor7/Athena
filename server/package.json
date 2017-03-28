@@ -33,7 +33,7 @@
   "dependencies": {
     "express": "^4.14.1",
     "mysql": "^2.13.0",
-    "sequelize": "^3.30.3",
+    "sequelize": "^3.30.4",
     "sequelize-cli": "^2.7.0"
   }
 }
