@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Game = sequelize.define('Game', {
-    game_integer: DataTypes.INTEGER,
+    game_number: DataTypes.INTEGER,
     sr_change: DataTypes.INTEGER,
     rank: DataTypes.INTEGER,
     streak: DataTypes.INTEGER,

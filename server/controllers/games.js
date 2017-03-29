@@ -5,7 +5,7 @@ module.exports= {
     create(req, res) {
         return Game
             .create({
-                game_integer: req.body.game_integer,
+                game_number: req.body.game_number,
                 sr_change: req.body.sr_change,
                 rank: req.body.rank,
                 streak: req.body.streak,
@@ -37,7 +37,7 @@ module.exports= {
         }
         return game
           .update({
-            game_integer: req.body.game_integer || game.game_integer,
+            game_number: req.body.game_number || game.game_number,
             sr_change: req.body.sr_change|| game.sr_change,
             rank: req.body.rank || game.rank,
             streak: req.body.streak || game.streak,
