@@ -14,9 +14,8 @@ module.exports= {
     },
     findAll(req, res) {
     return Game
-        .all()
-        .then(todos => res.status(200).send(games))
+        .findAll()
+        .then(games => res.status(200).send(games))
         .catch(error => res.status(400).send(error));
     }
-
 };
