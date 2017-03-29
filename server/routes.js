@@ -12,6 +12,8 @@ routes.get('/', basicController.get);
 
 routes.get('/games', gameController.findAll);
 routes.post('/games', gameController.create);
+routes.put('/games/:gameId', gameController.update);
+routes.delete('/games/:gameId', gameController.destroy);
 
 
 
