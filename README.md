@@ -37,5 +37,5 @@ Install Server
 Migrations
 Sequelize-cli will create the migrations and run them on your development or production server
 
-	$ sequelize migration:create
+    $ sequelize init
     $ sequelize db:migrate 
