@@ -1,9 +1,9 @@
 const basicController = {};
 
-basicController.get = (req, res) =>{
-    res.json({
-        message: 'Woo API'
-    });
+basicController.get = (req, res) => {
+  res.json({
+    message: 'Woo API'
+  });
 };
 
-export default basicController;
+module.exports = basicController;
