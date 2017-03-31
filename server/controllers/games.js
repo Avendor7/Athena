@@ -1,7 +1,16 @@
-const Game = require('../models').Game;
-
+import Game from '../models/game';
 
 module.exports= {
+
+  /**
+   * 
+   * Creates a new Game object on the server
+   * Returns 201 on success or 400 on error
+   * 
+   * @param {*} req req.body.ATTRIBUTE
+   * @param {*} res res.status
+   */
+
   create(req, res) {
     return Game
         .create({
@@ -19,6 +28,16 @@ module.exports= {
         .catch((error) => res.status(400).send(error));
   },
 
+  /**
+   * 
+   * Returns all entries from the server
+   * 
+   * Note- Should be changed to a findById in future multi-user versions
+   * 
+   * @param {*} req 
+   * @param {*} res res.status
+   */
+
   findAll(req, res) {
     return Game
         .findAll()
@@ -26,6 +45,15 @@ module.exports= {
         .catch(error => res.status(400).send(error));
   },
 
+
+  /**
+   * 
+   * Updates the database with new data from a put request by gameId
+   * Returns updated data with 200 on success, 400 on error, 404 if the gameId isn't found 
+   * 
+   * @param {*} req req.params.gameId from the URL
+   * @param {*} res 
+   */
   update(req, res) {
     return Game
       .findById(req.params.gameId)
@@ -52,7 +80,14 @@ module.exports= {
       })
       .catch((error) => res.status(400).send(error));
   },
-
+/**
+ * 
+ * Destroy Game by gameId
+ * Returns 204 on success, 400 on error
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
   destroy(req, res) {
     return Game
       .findById(req.params.gameId)
