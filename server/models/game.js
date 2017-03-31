@@ -1,6 +1,5 @@
-'use strict';
-module.exports = function(sequelize, DataTypes) {
-  var Game = sequelize.define('Game', {
+export default (sequelize, DataTypes) => {
+  const Game = sequelize.define('Game', {
     game_number: DataTypes.INTEGER,
     sr_change: DataTypes.INTEGER,
     rank: DataTypes.INTEGER,
@@ -12,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     notes: DataTypes.TEXT
   }, {
     classMethods: {
-      associate: function(models) {
+      associate(models) {
         // associations can be defined here
       }
     }
