@@ -1,7 +1,7 @@
 {
-  "name": "babel-nodejs-setup",
-  "version": "1.0.0",
-  "description": "",
+  "name": "Athena",
+  "version": "0.0.0",
+  "description": "Overwatch SR tracker",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,12 +14,13 @@
     "type": "git",
     "url": "git+https://github.com/DmsChrisPena/babel-nodejs-setup.git"
   },
+  "repository": "https://github.com/step1041/Athena",
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DmsChrisPena/babel-nodejs-setup/issues"
+    "url": "https://github.com/step1041/Athena/issues"
   },
-  "homepage": "https://github.com/DmsChrisPena/babel-nodejs-setup#readme",
+  "homepage": "https://github.com/step1041/Athena/blob/develop/README.md",
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-preset-es2015": "^6.22.0",
