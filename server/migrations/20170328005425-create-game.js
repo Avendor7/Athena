@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      game_integer: {
+      game_number: {
         type: Sequelize.INTEGER
       },
       sr_change: {
