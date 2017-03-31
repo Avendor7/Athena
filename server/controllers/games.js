@@ -1,4 +1,5 @@
 import Game from '../models/game';
+//const Game = require('../models').Game;
 
 module.exports= {
 
