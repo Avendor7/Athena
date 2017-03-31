@@ -1,12 +1,11 @@
-import express from 'express';
+const express = require('express');
 
 //controller imports
-import basicController from './controllers/basicController';
-import gameController from './controllers/games';
-
-
+const basicController = require('./controllers/basicController');
+const gameController = require('./controllers/games');
 
 const routes = express();
+
 //Basic Routes
 routes.get('/', basicController.get);
 
@@ -15,6 +14,4 @@ routes.post('/games', gameController.create);
 routes.put('/games/:gameId', gameController.update);
 routes.delete('/games/:gameId', gameController.destroy);
 
-
-
-export default routes; 
+module.exports = routes;

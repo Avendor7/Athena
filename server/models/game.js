@@ -1,4 +1,4 @@
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   const Game = sequelize.define('Game', {
     game_number: DataTypes.INTEGER,
     sr_change: DataTypes.INTEGER,
@@ -8,7 +8,7 @@ export default (sequelize, DataTypes) => {
     score: DataTypes.STRING,
     group_size: DataTypes.INTEGER,
     heroes: DataTypes.TEXT,
-    notes: DataTypes.TEXT
+    notes: DataTypes.TEXT,
   }, {
     classMethods: {
       associate(models) {
