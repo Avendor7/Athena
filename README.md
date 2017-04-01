@@ -39,3 +39,7 @@ Sequelize-cli will create the migrations and run them on your development or pro
 
     $ sequelize init
     $ sequelize db:migrate 
+
+Rollback migration
+
+    $ sequelize db:migrate:undo
