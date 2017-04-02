@@ -2,7 +2,7 @@ const express = require('express');
 
 //controller imports
 const basicController = require('./controllers/basicController');
-const gameController = require('./controllers/games');
+const gamesController = require('./controllers/gamesController');
 
 //create express routes
 const routes = express();
@@ -11,9 +11,9 @@ const routes = express();
 routes.get('/', basicController.get);
 
 //games Routes
-routes.get('/games', gameController.findAll);
-routes.post('/games', gameController.create);
-routes.put('/games/:gameId', gameController.update);
-routes.delete('/games/:gameId', gameController.destroy);
+routes.get('/games', gamesController.findAll);
+routes.post('/games', gamesController.create);
+routes.put('/games/:gameId', gamesController.update);
+routes.delete('/games/:gameId', gamesController.destroy);
 
 module.exports = routes;
