@@ -123,15 +123,34 @@ module.exports = {
       .findById(req.params.gameId)
       .then(game => {
         if (!game) {
-          return res.status(400).send({
-            message: 'Game Not Found',
+          throw {
+            status: 404,
+            message: 'Game not found',
+            errors: ['Game not found'],
+          };
+        }
+
+        return game.destroy()
+          .then(() => new Promise((resolve) => resolve(game)));
+      })
+      .then((game) => {
+        res.status(200).send({
+          status: 200,
+          message: 'Game destroyed',
+          data: game,
+        });
+      })
+      .catch((error) => {
+        if (error.status) {
+          res.status(error.status).send(error);
+        }
+        else {
+          res.status(500).send({
+            status: 500,
+            message: 'Internal server error',
+            errors: [error],
           });
         }
-        return game
-          .destroy()
-          .then(() => res.status(204).send())
-          .catch((error) => res.status(400).send(error));
-      })
-      .catch((error) => res.status(400).send(error));
+      });
   }
 };
