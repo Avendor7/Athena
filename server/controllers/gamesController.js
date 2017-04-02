@@ -46,8 +46,16 @@ module.exports = {
   findAll(req, res) {
     return Game
       .findAll()
-      .then(games => res.status(200).send(games))
-      .catch(error => res.status(400).send(error));
+      .then(games => res.status(200).send({
+        status: 200,
+        message: 'Games found',
+        data: games,
+      }))
+      .catch(error => res.status(500).send({
+        status: 500,
+        message: 'Internal server error',
+        errors: [error],
+      }));
   },
 
   /**
