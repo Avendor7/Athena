@@ -71,10 +71,13 @@ module.exports = {
       .findById(req.params.gameId)
       .then(game => {
         if (!game) {
-          return res.status(404).send({
-            message: 'Game Not Found',
-          });
+          throw {
+            status: 404,
+            message: 'Game not found',
+            errors: ['Game not found'],
+          };
         }
+
         return game
           .update({
             game_number: req.body.game_number || game.game_number,
@@ -86,11 +89,25 @@ module.exports = {
             group_size: req.body.group_size || game.group_size,
             heroes: req.body.heroes || game.heroes,
             notes: req.body.notes || game.notes
-          })
-          .then(() => res.status(200).send(game))
-          .catch((error) => res.status(400).send(error));
+          });
       })
-      .catch((error) => res.status(400).send(error));
+      .then((game) => res.status(200).send({
+        status: 200,
+        message: 'Game updated',
+        data: game,
+      }))
+      .catch((error) => {
+        if (error.status) {
+          res.status(error.status).send(error);
+        }
+        else {
+          res.status(500).send({
+            status: 500,
+            message: 'Internal server error',
+            errors: [error],
+          });
+        }
+      });
   },
 
   /**
