@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const routes = require('./routes');
 
 const app = express();
@@ -7,12 +8,9 @@ const app = express();
 //middleware
 app.use(bodyParser.json());
 
-app.use('/api', routes);
+//enable cors on ALL routes
+app.use(cors());
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+app.use('/api', routes);
 
 module.exports = app;
