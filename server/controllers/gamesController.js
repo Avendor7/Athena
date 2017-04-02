@@ -12,15 +12,9 @@ module.exports = {
   create(req, res) {
     return Game
       .create({
-        game_number: req.body.game_number,
-        sr_change: req.body.sr_change,
         rank: req.body.rank,
-        streak: req.body.streak,
         map: req.body.map,
-        score: req.body.score,
-        group_size: req.body.group_size,
-        heroes: req.body.heroes,
-        notes: req.body.notes
+        outcome: req.body.outcome,
       })
       .then((game) => res.status(201).send({
         status: 201,
