@@ -2,11 +2,10 @@ const models = require('../models');
 const Game = models.Game;
 
 module.exports = {
-
   /**
-   *
    * Creates a new Game object on the server
-   * Returns 201 on success or 400 on error
+   *
+   * @route POST /games
    *
    * @param {*} req req.body.ATTRIBUTE
    * @param {*} res res.status
@@ -29,10 +28,10 @@ module.exports = {
   },
 
   /**
-   *
    * Returns all entries from the server
+   * Note: Should be changed to a findById in future multi-user versions
    *
-   * Note- Should be changed to a findById in future multi-user versions
+   * @route GET /games
    *
    * @param {*} req
    * @param {*} res res.status
@@ -45,9 +44,9 @@ module.exports = {
   },
 
   /**
-   *
    * Updates the database with new data from a put request by gameId
-   * Returns updated data with 200 on success, 400 on error, 404 if the gameId isn't found
+   *
+   * @route PUT /games/:gameId
    *
    * @param {*} req req.params.gameId from the URL
    * @param {*} res
@@ -80,9 +79,9 @@ module.exports = {
   },
 
   /**
-   *
    * Destroy Game by gameId
-   * Returns 204 on success, 400 on error
+   *
+   * @route DELETE /games/:gameId
    *
    * @param {*} req
    * @param {*} res
