@@ -1,5 +1,4 @@
-const models = require('../models');
-const Game = models.Game;
+const Game = require('../models').Game;
 
 module.exports = {
   /**
