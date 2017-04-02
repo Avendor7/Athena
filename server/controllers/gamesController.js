@@ -22,8 +22,16 @@ module.exports = {
         heroes: req.body.heroes,
         notes: req.body.notes
       })
-      .then((game) => res.status(201).send(game))
-      .catch((error) => res.status(400).send(error));
+      .then((game) => res.status(201).send({
+        status: 201,
+        message: 'Game created',
+        data: game,
+      }))
+      .catch((error) => res.status(500).send({
+        status: 500,
+        message: 'Internal server error',
+        errors: [error],
+      }));
   },
 
   /**
