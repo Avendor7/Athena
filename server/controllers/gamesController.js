@@ -74,15 +74,9 @@ module.exports = {
 
         return game
           .update({
-            game_number: req.body.game_number || game.game_number,
-            sr_change: req.body.sr_change || game.sr_change,
             rank: req.body.rank || game.rank,
-            streak: req.body.streak || game.streak,
             map: req.body.map || game.map,
-            score: req.body.score || game.score,
-            group_size: req.body.group_size || game.group_size,
-            heroes: req.body.heroes || game.heroes,
-            notes: req.body.notes || game.notes
+            outcome: req.body.outcome || game.outcome,
           });
       })
       .then((game) => res.status(200).send({
