@@ -19,7 +19,7 @@ module.exports = {
       .then((game) => res.status(201).send({
         status: 201,
         message: 'Game created',
-        games: game,
+        game: game,
       }))
       .catch((error) => res.status(500).send({
         status: 500,
@@ -82,7 +82,7 @@ module.exports = {
       .then((game) => res.status(200).send({
         status: 200,
         message: 'Game updated',
-        games: game,
+        game: game,
       }))
       .catch((error) => {
         if (error.status) {
@@ -125,7 +125,7 @@ module.exports = {
         res.status(200).send({
           status: 200,
           message: 'Game destroyed',
-          games: game,
+          game: game,
         });
       })
       .catch((error) => {
