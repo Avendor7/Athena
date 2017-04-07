@@ -1,3 +1,22 @@
-<h1>Project: Athena</h1>
+<h1>Project Athena</h1>
+<table>
+    <thead> 
+        <th>Game Number</th> 
+        <th>Game Time</th> 
+        <th>Rank</th> 
+        <th>Outcome</th> 
+    </thead> 
+    <tbody> 
+        {{#each model.games as |game|}}
+        <tr>
+          <td>{{game.id}}</td>  
+          <td>{{game.createdAt}}</td> 
+          <td>{{game.rank}}</td> 
+          <td>{{game.outcome}}</td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
+
 
 {{outlet}}
