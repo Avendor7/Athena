@@ -25,7 +25,7 @@
       <form class="form-inline">
         <div class="form-group">
           <label for="rank">Rank</label>
-          <input type="rank" class="form-control" id="rank" size="4" maxlength="4">
+          <input type="number" class="form-control" id="rank" size="4" maxlength="4">
         </div>
         {{#bs-button-group value=outcome type="radio" onChange=(action (mut outcome)) as |bg|}}
           {{#bg.button type="default" value='W'}}Win{{/bg.button}}
