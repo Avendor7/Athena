@@ -1,21 +1,21 @@
 <h2 class="sub-header">Season 4</h2>
 <div class="table-responsive">
-<table class="table table-striped">
-    <thead> 
-    <th>Game Number</th> 
-    <th>Game Time</th> 
-    <th>Rank</th> 
-    <th>Outcome</th> 
-    </thead> 
-    <tbody> 
-    {{#each model as |game|}}
-        <tr>
-        <td>{{game.id}}</td>  
-        <td>{{game.createdAt}}</td> 
-        <td>{{game.rank}}</td> 
-        <td>{{game.outcome}}</td>
-        </tr> 
-    {{/each}} 
-    </tbody> 
-</table> 
+    <table class="table table-striped">
+        <thead> 
+        <th>Game Number</th> 
+        <th>Game Time</th> 
+        <th>Rank</th> 
+        <th>Outcome</th> 
+        </thead> 
+        <tbody> 
+        {{#each model as |game|}}
+            <tr>
+            <td>{{game.id}}</td>  
+            <td>{{game.createdAt}}</td> 
+            <td>{{game.rank}}</td> 
+            <td>{{game.outcome}}</td>
+            </tr> 
+        {{/each}}
+        </tbody> 
+    </table> 
 </div>
