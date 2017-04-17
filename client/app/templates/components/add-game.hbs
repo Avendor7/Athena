@@ -1,0 +1,13 @@
+<h2>Add New Game</h2>
+<form class="form-inline">
+<div class="form-group">
+    <label for="rank">Rank</label>
+    <input type="number" class="form-control" id="rank" size="4" maxlength="4">
+</div>
+{{#bs-button-group value=outcome type="radio" onChange=(action (mut outcome)) as |bg|}}
+    {{#bg.button type="default" value='W'}}Win{{/bg.button}}
+    {{#bg.button type="default" value='L'}}Loss{{/bg.button}}
+    {{#bg.button type="default" value='D'}}Draw{{/bg.button}}
+{{/bs-button-group}}
+<button type="submit" class="btn btn-default">Save</button>
+</form>
