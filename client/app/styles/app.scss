@@ -1,3 +1,5 @@
+@import "ember-bootstrap/bootstrap";
+
 //colours
 $color_wild_sand_approx: #f5f5f5;
 $color_gallery_approx: #eee;
@@ -93,4 +95,18 @@ body {
   }
 }
 
-@import "ember-bootstrap/bootstrap";
+.form-inline {
+  .control-label {
+    input, button, .btn, .btn-group {
+      display: block;
+    }
+
+    small {
+      color: $gray-light;
+    }
+  }
+}
+
+.spacer {
+  margin-top: $padding-base-vertical;
+}
