@@ -1,12 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    
-   model() {
-        return Ember.RSVP.hash({
-            games: this.store.findAll('game')
-        });
-    },
 
     actions:{
         saveGameInParent(outcome, rank) {
@@ -19,6 +13,7 @@ export default Ember.Controller.extend({
                 'rank': rank,
                 'outcome': outcome
             });
+
             saveGame.save();
             console.log("record created");
         }
