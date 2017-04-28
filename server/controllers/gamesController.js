@@ -12,9 +12,8 @@ module.exports = {
   create(req, res) {
     return Game
       .create({
-        rank: req.body.rank,
-        map: req.body.map,
-        outcome: req.body.outcome,
+        rank: req.body.game.rank,
+        outcome: req.body.game.outcome,
       })
       .then((game) => res.status(201).send({
         status: 201,
@@ -74,9 +73,8 @@ module.exports = {
 
         return game
           .update({
-            rank: req.body.rank || game.rank,
-            map: req.body.map || game.map,
-            outcome: req.body.outcome || game.outcome,
+            rank: req.body.game.rank || game.rank,
+            outcome: req.body.game.outcome || game.outcome,
           });
       })
       .then((game) => res.status(200).send({
