@@ -1,4 +1,4 @@
-<h2 class="sub-header">Season 4</h2>
+<h2 class="sub-header">Season 4</h2><button {{action "isEditing"}}>Edit Mode</button> <button {{action "editGame"}}>Save</button><p>{{editing}}</p>
 <div class="table-responsive">
     <table class="table table-striped">
         <thead> 
@@ -8,14 +8,30 @@
             <th>Outcome</th> 
         </thead> 
         <tbody> 
-        {{#each model as |game|}}
-            <tr>
-                <td><textarea>{{game.id}}</textarea></td>  
-                <td>{{game.createdAt}}</td> 
-                <td>{{game.rank}}</td> 
-                <td>{{game.outcome}}</td>
-            </tr> 
-        {{/each}}
+            {{#if editing}}
+                
+                {{#each model as |game|}}
+                    <tr>
+                        <td>{{game.id}}</td>  
+                        <td>{{game.createdAt}}</td> 
+                        <td>{{input value=rank type="number" min="4" max="6" class="form-control"}}</td> 
+                        <td>{{#bs-button-group value=outcome type="radio" onChange=(action (mut outcome)) as |bg|}}
+                                {{#bg.button type="default" value='W'}}Win{{/bg.button}}
+                                {{#bg.button type="default" value='D'}}Draw{{/bg.button}}
+                                {{#bg.button type="default" value='L'}}Loss{{/bg.button}}
+                            {{/bs-button-group}}</td>
+                    </tr> 
+                {{/each}}
+            {{else}}
+                {{#each model as |game|}}
+                    <tr>
+                        <td>{{game.id}}</td>  
+                        <td>{{game.createdAt}}</td> 
+                        <td>{{game.rank}}</td> 
+                        <td>{{game.outcome}}</td>
+                    </tr> 
+                {{/each}}
+            {{/if}}
         </tbody> 
     </table> 
 </div>
