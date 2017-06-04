@@ -12,7 +12,12 @@ export default Ember.Component.extend({
         isEditing(){
             this.set('editing', true);
             console.log(this.editing);
+        },
+        deleteRecord(id){
+            console.log(id);
+            this.deleteGameInParent(id);
         }
+        
     }
     //TODO: fix edit toggle to be per-entry and pre-populate
 });
