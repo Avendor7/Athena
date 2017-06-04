@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     actions: {
-        saveGame() {
+        saveNewGame() {
             const outcome = this.get('outcome');
             const rank = this.get('rank');
             this.saveGameInParent(outcome, rank);
