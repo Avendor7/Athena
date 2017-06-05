@@ -12,12 +12,9 @@ export default Ember.Controller.extend({
         },
         deleteGameInParent(id) {
             var store = this.store;
-            console.log("blah");
-            // store.findRecord('game', id, { backgroundReload: false }).then(function(post) {
-            //     game.deleteRecord();
-            //     game.get('isDeleted'); // => true
-            //     game.save(); // => DELETE to /posts/1
-            // });
+            store.findRecord('game', id, { backgroundReload: false }).then(function(game) {
+                game.destroyRecord();
+            });
         }
     }
 });
