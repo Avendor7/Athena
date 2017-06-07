@@ -18,13 +18,14 @@ export default Ember.Controller.extend({
         },
         saveUpdatedGameInParent(id, outcome, rank){
             var store = this.store;
+            //retrieve row
             store.findRecord('game', id).then(function(game) {
-            // ...after the record has loaded
-            game.set('rank', rank);
-            game.set('outcome', outcome);
-
-            game.save();
-});
+                //set the data    
+                game.set('rank', rank);
+                game.set('outcome', outcome);
+                //persist the data
+                game.save();
+            });
         }
     }
 });

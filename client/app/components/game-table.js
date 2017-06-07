@@ -15,8 +15,8 @@ export default Ember.Component.extend({
             this.set('modal', false);
         },
         openModifyModal(game){
-            this.set('modal', true);
             this.set('selectedGame', game);
+            this.set('modal', true);
         }   
     }
 });
