@@ -15,6 +15,7 @@
                     <td>{{game.rank}}</td> 
                     <td>{{game.outcome}}</td>
                     <td>{{#bs-button onClick=(action (mut modal3) true)}}Open Modal{{/bs-button}}</td>
+                    <td>{{#bs-button onClick=(action "openModal" game)}}Open Modal2{{/bs-button}}</td>
                 </tr> 
             {{/each}}
         </tbody> 
@@ -28,13 +29,13 @@
                 <div class="form-group">
                     <label class="control-label">
                     Rank <small>(After match)</small>
-                    {{input value=rank type="number" min="4" max="6" class="form-control"}}
+                    {{input value=selectedGame.rank type="number" min="4" max="6" class="form-control"}}
                     </label>
                 </div>
                 <div class="form-group">
                     <label class="control-label">
                     Outcome
-                    {{#bs-button-group value=outcome type="radio" onChange=(action (mut outcome)) as |bg|}}
+                    {{#bs-button-group value=selectedGame.outcome type="radio" onChange=(action (mut outcome)) as |bg|}}
                         {{#bg.button type="default" value='W'}}Win{{/bg.button}}
                         {{#bg.button type="default" value='D'}}Draw{{/bg.button}}
                         {{#bg.button type="default" value='L'}}Loss{{/bg.button}}

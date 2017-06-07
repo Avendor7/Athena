@@ -16,6 +16,11 @@ export default Ember.Component.extend({
         deleteRecord(id){
             console.log(id);
             this.deleteGameInParent(id);
+        },
+        openModal(game){
+            console.log(game);
+            this.set('modal3', true);
+            this.set('selectedGame', game);
         }
         
     }
