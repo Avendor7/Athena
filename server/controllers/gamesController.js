@@ -52,6 +52,29 @@ module.exports = {
   },
 
   /**
+   * Returns one entry from the server
+   *
+   * @route GET /games/*
+   *
+   * @param {*} req
+   * @param {*} res res.status
+   */
+  findOne(req, res) {
+    return Game
+      .findById(req.params.gameId)
+      .then(games => res.status(200).send({
+        status: 200,
+        message: 'Games found',
+        games: games,
+      }))
+      .catch(error => res.status(500).send({
+        status: 500,
+        message: 'Internal server error',
+        errors: [error],
+      }));
+  },
+
+  /**
    * Updates the database with new data from a put request by gameId
    *
    * @route PUT /games/:gameId

@@ -11,6 +11,7 @@ const routes = express();
 routes.get('/', basicController.get);
 
 //games Routes
+routes.get('/games/:gameId', gamesController.findOne);
 routes.get('/games', gamesController.findAll);
 routes.post('/games', gamesController.create);
 routes.put('/games/:gameId', gamesController.update);
