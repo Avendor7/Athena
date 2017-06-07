@@ -15,6 +15,17 @@ export default Ember.Controller.extend({
             store.findRecord('game', id, { backgroundReload: false }).then(function(game) {
                 game.destroyRecord();
             });
+        },
+        saveUpdatedGameInParent(game){
+            this.game = game;
+            var store = this.store;
+            alert(this.game.id);
+            store.findRecord('game', this.game.id).then(function(game) {
+            // ...after the record has loaded
+            game.set(game);
+
+            game.save();
+});
         }
     }
 });

@@ -3,11 +3,9 @@ import Ember from 'ember';
 export default Ember.Component.extend({
     editing: false,
     actions:{
-        saveEditedGame(){
-            const outcome = this.get('outcome');
-            const rank = this.get('rank');
-
-            //this.saveUpdatedGameInParent(outcome, rank);
+        saveEditedGame(game){
+            this.set('modal', false);
+            this.saveUpdatedGameInParent(game);
         },
         deleteRecord(id){
             this.deleteGameInParent(id);

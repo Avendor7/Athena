@@ -1,4 +1,4 @@
-<h2 class="sub-header">Season 4</h2><button {{action "isEditing"}}>Edit Mode</button> <button {{action "editGame"}}>Save</button><p>{{editing}}</p>
+<h2 class="sub-header">Season 5</h2>
 <div class="table-responsive">
     <table class="table table-striped">
         <thead> 
@@ -20,7 +20,7 @@
             {{/each}}
         </tbody> 
     </table>
-    {{#bs-modal open=modal onSubmit=(action "editGame") onHidden=(action (mut modal) false) as |modal|}}
+    {{#bs-modal open=modal onHidden=(action (mut modal) false) as |modal|}}
         {{#modal.header}}
             <h4 class="modal-title">Edit</h4>
         {{/modal.header}}
@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <label class="control-label">
                     Outcome
-                    {{#bs-button-group value=selectedGame.outcome type="radio" onChange=(action (mut outcome)) as |bg|}}
+                    {{#bs-button-group value=selectedGame.outcome type="radio" onChange=(action (mut selectedGame.outcome)) as |bg|}}
                         {{#bg.button type="default" value='W'}}Win{{/bg.button}}
                         {{#bg.button type="default" value='D'}}Draw{{/bg.button}}
                         {{#bg.button type="default" value='L'}}Loss{{/bg.button}}
@@ -49,7 +49,7 @@
                 {{#bs-button type="danger" onClick=(action "deleteRecord" selectedGame.id)}}Delete{{/bs-button}}
             </div>
             {{#bs-button onClick=(action modal.close)}}Cancel{{/bs-button}}
-            {{#bs-button type="success" onClick=(action modal.submit)}}Save{{/bs-button}}
+            {{#bs-button type="success" onClick=(action "saveEditedGame" selectedGame)}}Save{{/bs-button}}
         {{/modal.footer}}
     {{/bs-modal}}
 </div>
