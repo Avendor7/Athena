@@ -49,7 +49,7 @@
                 {{#bs-button type="danger" onClick=(action "deleteRecord" selectedGame.id)}}Delete{{/bs-button}}
             </div>
             {{#bs-button onClick=(action modal.close)}}Cancel{{/bs-button}}
-            {{#bs-button type="success" onClick=(action "saveEditedGame" selectedGame)}}Save{{/bs-button}}
+            {{#bs-button type="success" onClick=(action "saveEditedGame")}}Save{{/bs-button}}
         {{/modal.footer}}
     {{/bs-modal}}
 </div>

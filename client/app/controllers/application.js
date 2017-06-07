@@ -16,13 +16,12 @@ export default Ember.Controller.extend({
                 game.destroyRecord();
             });
         },
-        saveUpdatedGameInParent(game){
-            this.game = game;
+        saveUpdatedGameInParent(id, outcome, rank){
             var store = this.store;
-            alert(this.game.id);
-            store.findRecord('game', this.game.id).then(function(game) {
+            store.findRecord('game', id).then(function(game) {
             // ...after the record has loaded
-            game.set(game);
+            game.set('rank', rank);
+            game.set('outcome', outcome);
 
             game.save();
 });
