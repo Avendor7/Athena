@@ -35,12 +35,12 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">
-                    Outcome
-                    {{#bs-button-group value=selectedGame.outcome type="radio" onChange=(action (mut selectedGame.outcome)) as |bg|}}
-                        {{#bg.button type="default" value='W'}}Win{{/bg.button}}
-                        {{#bg.button type="default" value='D'}}Draw{{/bg.button}}
-                        {{#bg.button type="default" value='L'}}Loss{{/bg.button}}
-                    {{/bs-button-group}}
+                        Outcome
+                        {{#bs-button-group value=selectedGame.outcome type="radio" onChange=(action (mut selectedGame.outcome)) as |bg|}}
+                            {{#bg.button type="default" value='W'}}Win{{/bg.button}}
+                            {{#bg.button type="default" value='D'}}Draw{{/bg.button}}
+                            {{#bg.button type="default" value='L'}}Loss{{/bg.button}}
+                        {{/bs-button-group}}
                     </label>
                 </div>
             </form>
