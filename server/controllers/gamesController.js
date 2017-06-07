@@ -54,7 +54,7 @@ module.exports = {
   /**
    * Returns one entry from the server
    *
-   * @route GET /games/*
+   * @route GET /games/:gameId
    *
    * @param {*} req
    * @param {*} res res.status
@@ -62,16 +62,31 @@ module.exports = {
   findOne(req, res) {
     return Game
       .findById(req.params.gameId)
-      .then(games => res.status(200).send({
-        status: 200,
-        message: 'Games found',
-        games: games,
-      }))
-      .catch(error => res.status(500).send({
-        status: 500,
-        message: 'Internal server error',
-        errors: [error],
-      }));
+      .then(games =>  {
+        if (games){
+          res.status(200).send({
+            status: 200,
+            message: 'Games found',
+            games: games,
+      })}else{
+          throw {
+            status: 404,
+            message: 'Game not found',
+            errors: ['Game not found'],
+          };
+      }})
+      .catch((error) => {
+        if (error.status) {
+          res.status(error.status).send(error);
+        }
+        else {
+          res.status(500).send({
+            status: 500,
+            message: 'Internal server error',
+            errors: [error],
+          });
+        }
+      });
   },
 
   /**
@@ -93,7 +108,6 @@ module.exports = {
             errors: ['Game not found'],
           };
         }
-
         return game
           .update({
             rank: req.body.game.rank || game.rank,
