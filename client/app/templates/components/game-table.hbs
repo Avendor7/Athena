@@ -5,6 +5,7 @@
             <th>Game Number</th> 
             <th>Game Time</th> 
             <th>Rank</th> 
+            <th>Outcome</th>
             <th>Modify</th>
         </thead> 
         <tbody> 
@@ -14,13 +15,12 @@
                     <td>{{game.createdAt}}</td> 
                     <td>{{game.rank}}</td> 
                     <td>{{game.outcome}}</td>
-                    <td>{{#bs-button onClick=(action (mut modal3) true)}}Open Modal{{/bs-button}}</td>
-                    <td>{{#bs-button onClick=(action "openModal" game)}}Open Modal2{{/bs-button}}</td>
+                    <td>{{#bs-button onClick=(action "openModifyModal" game)}}Modify{{/bs-button}}</td>
                 </tr> 
             {{/each}}
         </tbody> 
     </table>
-    {{#bs-modal open=modal3 onSubmit=(action "editGame") onHidden=(action (mut modal3) false) as |modal|}}
+    {{#bs-modal open=modal onSubmit=(action "editGame") onHidden=(action (mut modal) false) as |modal|}}
         {{#modal.header}}
             <h4 class="modal-title">Edit</h4>
         {{/modal.header}}
@@ -45,8 +45,10 @@
             </form>
         {{/modal.body}}
         {{#modal.footer}}
+            <div class="pull-left">
+                {{#bs-button type="danger" onClick=(action "deleteRecord" selectedGame.id)}}Delete{{/bs-button}}
+            </div>
             {{#bs-button onClick=(action modal.close)}}Cancel{{/bs-button}}
-            {{#bs-button type="danger" onClick=(action "deleteRecord" game.id)}}Delete{{/bs-button}}
             {{#bs-button type="success" onClick=(action modal.submit)}}Save{{/bs-button}}
         {{/modal.footer}}
     {{/bs-modal}}
