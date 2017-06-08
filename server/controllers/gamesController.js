@@ -12,9 +12,8 @@ module.exports = {
   create(req, res) {
     return Game
       .create({
-        rank: req.body.rank,
-        map: req.body.map,
-        outcome: req.body.outcome,
+        rank: req.body.game.rank,
+        outcome: req.body.game.outcome,
       })
       .then((game) => res.status(201).send({
         status: 201,
@@ -53,6 +52,45 @@ module.exports = {
   },
 
   /**
+   * Returns one entry from the server
+   *
+   * @route GET /games/:gameId
+   *
+   * @param {*} req
+   * @param {*} res res.status
+   */
+  findOne(req, res) {
+    return Game
+      .findById(req.params.gameId)
+      .then(games => {
+        if (games) {
+          res.status(200).send({
+            status: 200,
+            message: 'Games found',
+            games: games,
+          })
+        } else {
+          throw {
+            status: 404,
+            message: 'Game not found',
+            errors: ['Game not found'],
+          };
+        }
+      })
+      .catch((error) => {
+        if (error.status) {
+          res.status(error.status).send(error);
+        } else {
+          res.status(500).send({
+            status: 500,
+            message: 'Internal server error',
+            errors: [error],
+          });
+        }
+      });
+  },
+
+  /**
    * Updates the database with new data from a put request by gameId
    *
    * @route PUT /games/:gameId
@@ -71,12 +109,10 @@ module.exports = {
             errors: ['Game not found'],
           };
         }
-
         return game
           .update({
-            rank: req.body.rank || game.rank,
-            map: req.body.map || game.map,
-            outcome: req.body.outcome || game.outcome,
+            rank: req.body.game.rank || game.rank,
+            outcome: req.body.game.outcome || game.outcome,
           });
       })
       .then((game) => res.status(200).send({
@@ -87,8 +123,7 @@ module.exports = {
       .catch((error) => {
         if (error.status) {
           res.status(error.status).send(error);
-        }
-        else {
+        } else {
           res.status(500).send({
             status: 500,
             message: 'Internal server error',
@@ -118,8 +153,7 @@ module.exports = {
           };
         }
 
-        return game.destroy()
-          .then(() => new Promise((resolve) => resolve(game)));
+        return game
       })
       .then((game) => {
         res.status(200).send({
@@ -131,8 +165,7 @@ module.exports = {
       .catch((error) => {
         if (error.status) {
           res.status(error.status).send(error);
-        }
-        else {
+        } else {
           res.status(500).send({
             status: 500,
             message: 'Internal server error',
