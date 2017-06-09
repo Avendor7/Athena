@@ -1,0 +1,56 @@
+<h2 class="sub-header">Season 5</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead> 
+            <th>Game Number</th> 
+            <th>Game Time</th> 
+            <th>Rank</th> 
+            <th>Outcome</th>
+            <th>Modify</th>
+        </thead> 
+        <tbody> 
+            {{#each model as |game|}}
+                <tr>
+                    <td>{{game.id}}</td>  
+                    <td>{{game.createdAt}}</td> 
+                    <td>{{game.rank}}</td> 
+                    <td>{{game.outcome}}</td>
+                    <td>{{#bs-button onClick=(action "openModifyModal" game)}}Modify{{/bs-button}}</td>
+                </tr> 
+            {{/each}}
+        </tbody> 
+    </table>
+    {{#bs-modal open=modal onHidden=(action (mut modal) false) as |modal|}}
+        {{#modal.header}}
+            <h4 class="modal-title">Edit</h4>
+        {{/modal.header}}
+        {{#modal.body}}
+            <form class="form-inline">
+                <div class="form-group">
+                    <label class="control-label">
+                        Rank 
+                        <small>(After match)</small>
+                        {{input value=selectedGame.rank type="number" class="form-control"}}
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        Outcome
+                        {{#bs-button-group value=selectedGame.outcome type="radio" onChange=(action (mut selectedGame.outcome)) as |bg|}}
+                            {{#bg.button type="default" value='W'}}Win{{/bg.button}}
+                            {{#bg.button type="default" value='D'}}Draw{{/bg.button}}
+                            {{#bg.button type="default" value='L'}}Loss{{/bg.button}}
+                        {{/bs-button-group}}
+                    </label>
+                </div>
+            </form>
+        {{/modal.body}}
+        {{#modal.footer}}
+            <div class="pull-left">
+                {{#bs-button type="danger" onClick=(action "deleteGame" selectedGame.id)}}Delete{{/bs-button}}
+            </div>
+            {{#bs-button onClick=(action modal.close)}}Cancel{{/bs-button}}
+            {{#bs-button type="success" onClick=(action "saveEditedGame")}}Save{{/bs-button}}
+        {{/modal.footer}}
+    {{/bs-modal}}
+</div>
