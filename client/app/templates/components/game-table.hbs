@@ -1,24 +1,24 @@
 <h2 class="sub-header">Season 5</h2>
 <div class="table-responsive">
     <table class="table table-striped">
-        <thead> 
-            <th>Game Number</th> 
-            <th>Game Time</th> 
-            <th>Rank</th> 
+        <thead>
+            <th>Game Number</th>
+            <th>Game Time</th>
+            <th>Rank</th>
             <th>Outcome</th>
             <th>Modify</th>
-        </thead> 
-        <tbody> 
+        </thead>
+        <tbody>
             {{#each model as |game|}}
                 <tr>
-                    <td>{{game.id}}</td>  
-                    <td>{{game.createdAt}}</td> 
-                    <td>{{game.rank}}</td> 
+                    <td>{{game.gameNumber}}</td>
+                    <td>{{game.createdAt}}</td>
+                    <td>{{game.rank}}</td>
                     <td>{{game.outcome}}</td>
                     <td>{{#bs-button onClick=(action "openModifyModal" game)}}Modify{{/bs-button}}</td>
-                </tr> 
+                </tr>
             {{/each}}
-        </tbody> 
+        </tbody>
     </table>
     {{#bs-modal open=modal onHidden=(action (mut modal) false) as |modal|}}
         {{#modal.header}}
@@ -28,7 +28,7 @@
             <form class="form-inline">
                 <div class="form-group">
                     <label class="control-label">
-                        Rank 
+                        Rank
                         <small>(After match)</small>
                         {{input value=selectedGame.rank type="number" class="form-control"}}
                     </label>
