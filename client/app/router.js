@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('games', { path: '/games'});
+  this.route('auth', { path: '/auth/:type'});
 });
 
 export default Router;
