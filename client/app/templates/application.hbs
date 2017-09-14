@@ -1,11 +1,2 @@
 {{nav-bar}}
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-offset-2 col-sm-8 col-md-8 main">
-      {{add-game model=model.games onNewGame=(action 'onNewGame')}}
-      <br>
-      {{game-table model=model.games onDeleteGame=(action 'onDeleteGame') onEditGame=(action 'onEditGame')}}
-    </div>
-  </div>
-</div>
 {{outlet}}
