@@ -1,0 +1,13 @@
+module.exports = {
+  https: true,
+  db: {
+    username: "root",
+    password: null,
+  },
+  auth: {
+    battlenet: {
+      client: 'blarg...',
+      secret: 'secret blarg...',
+    },
+  },
+};
