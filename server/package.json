@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "cors": "^2.8.3",
+    "deepmerge": "^1.5.1",
     "express": "^4.14.1",
     "mysql": "^2.13.0",
     "sequelize": "^3.30.4"
