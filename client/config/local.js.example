@@ -2,4 +2,6 @@
 
 module.exports = function (ENV) {
   ENV.APP.serverUrl = 'https://localhost:3000';
+  ENV.APP.battleNetRegion = 'US';
+  ENV.APP.battleNetKey = 'blarg...';
 };
