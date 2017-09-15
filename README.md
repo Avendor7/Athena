@@ -1,45 +1,52 @@
-
-
 Athena - Overwatch Competitive Game Tracker
 ===========================================
 
-## Requirements and Setup ##
-
 Requirements
+------------
+Please ensure the following tools are installed on your system:
 
- - Node
- - Bower
+ - Node.js
  - MySQL
+ - Sequelize-cli installed globally (`npm i -g sequelize-cli`)
 
-## Client ##
+Install
+-------
+### Client ###
+```bash
+$ cd client
+$ npm install
+$ cp config/local.js.example config/local.js 
+```
+update `config/local.js` with values as needed
 
-Install Client
+### Server ###
+```bash
+$ cd server
+$ npm install
+$ cp config/local.js.example config/local.js 
+```
+update `config/local.js` with values as needed
 
-    $ npm install && bower install
-Start Client
+After configuring your `config/local.js` file, you can create the database:
+```bash
+$ sequelize init
+$ sequelize db:migrate
+```
 
-    $ ember serve
-    
-    http://localhost:4200
+Start
+-----
+### Client ###
+```bash
+$ cd client
+$ npm start
+```
+By default, the client is hosted at https://localhost:4200
+You will have to accept the self-signed snakeoil ssl certificate on your first visit
 
-Build Client
-
-    $ ember build
-
-## Server ##
-
-Server is Express with Sequelize to manage the MySQL database. Sequelize-cli
-
-Install Server
-
-    $ npm install
-    $ npm install -g sequelize-cli
-Migrations
-Sequelize-cli will create the migrations and run them on your development or production server
-
-    $ sequelize init
-    $ sequelize db:migrate 
-
-Rollback migration
-
-    $ sequelize db:migrate:undo
+### Server ###
+```bash
+$ cd server
+$ npm start
+```
+By default, the server is hosted at https://localhost:3000
+You will have to accept the self-signed snakeoil ssl certificate on your first visit
