@@ -46,7 +46,7 @@ module.exports = function(environment) {
 
   }
 
-  require('./local.env')(ENV);
+  require('./local')(ENV);
 
   return ENV;
 };

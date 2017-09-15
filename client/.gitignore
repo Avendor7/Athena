@@ -16,4 +16,4 @@
 npm-debug.log*
 testem.log
 
-/config/local.env.js
+/config/local.js
