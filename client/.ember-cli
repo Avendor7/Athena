@@ -7,6 +7,6 @@
   */
   "disableAnalytics": false,
   "ssl": true,
-  "ssl-key": "./server.snakeoil.key",
-  "ssl-cert": "./server.snakeoil.crt"
+  "ssl-key": "./client.snakeoil.key",
+  "ssl-cert": "./client.snakeoil.crt"
 }

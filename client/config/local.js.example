@@ -1,5 +1,5 @@
 /* eslint-env node */
 
 module.exports = function (ENV) {
-  ENV.APP.serverUrl = 'http://localhost:3000';
+  ENV.APP.serverUrl = 'https://localhost:3000';
 };
