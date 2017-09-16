@@ -1,20 +1,17 @@
+const environment = process.env.NODE_ENV || 'development';
+
 const deepmerge = require('deepmerge');
 const locals = require('./local');
+const dbConfig = require('./config.json')[environment];
 
-const environment = process.env.NODE_ENV || 'development';
+delete locals.db; // Ignore all database config in local.js
 
 const ENV = {
   hostname: 'localhost',
   port: 3000,
   https: false,
   env: environment,
-  db: {
-    username: null,
-    password: null,
-    database: null,
-    host: '127.0.0.1',
-    dialect: 'mysql',
-  },
+  db: dbConfig,
   auth: {
     battlenet: {
       client: null,
@@ -22,18 +19,5 @@ const ENV = {
     },
   },
 };
-
-if (environment === 'development') {
-  ENV.db.database = 'athena_development';
-}
-
-if (environment === 'test') {
-  ENV.db.database = 'athena_test';
-
-}
-
-if (environment === 'production') {
-  ENV.db.database = 'athena_production';
-}
 
 module.exports = deepmerge(ENV, locals);
