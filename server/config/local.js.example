@@ -1,0 +1,10 @@
+module.exports = {
+  https: true,
+  db: { /* This ignored. Use config.json */ },
+  auth: {
+    battlenet: {
+      client: 'blarg...',
+      secret: 'secret blarg...',
+    },
+  },
+};

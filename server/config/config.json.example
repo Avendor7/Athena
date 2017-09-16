@@ -1,22 +1,23 @@
 {
+  "__info__": "Database configuration file. Required for sequelize to work without needing to pass params.",
   "development": {
     "username": "root",
     "password": null,
-    "database": "database_development",
+    "database": "athena_development",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "athena_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "athena_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
